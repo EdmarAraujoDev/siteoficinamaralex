@@ -36,6 +36,7 @@
         padding: 0;
         box-sizing: border-box;
         font-family: "Inter", sans-serif;
+        scroll-behavior: smooth;
       }
 
       body {
@@ -130,30 +131,7 @@
         padding-left: 20px;
       }
 
-      /* NOVA SEÇÃO: SLOGAN DE FÉ E QUALIDADE */
-      .faith-section {
-        background:
-          linear-gradient(rgba(230, 0, 0, 0.1), rgba(0, 0, 0, 0.9)),
-          url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
-        padding: 80px 8%;
-        text-align: center;
-        border-top: 1px solid var(--primary);
-        border-bottom: 1px solid var(--primary);
-      }
-
-      .faith-section h2 {
-        font-size: clamp(1.5rem, 4vw, 2.5rem);
-        color: #fff;
-        font-style: italic;
-        text-shadow: 0 0 20px rgba(230, 0, 0, 0.5);
-      }
-
-      .faith-section .icon-divider {
-        color: var(--primary);
-        font-size: 2rem;
-        margin-bottom: 20px;
-      }
-
+      /* BOTÕES */
       .btn {
         padding: 16px 35px;
         border-radius: 4px;
@@ -161,7 +139,6 @@
         font-weight: 700;
         display: inline-block;
         transition: var(--transition);
-        cursor: pointer;
         text-transform: uppercase;
         font-size: 0.85rem;
       }
@@ -175,23 +152,34 @@
       .btn-primary:hover {
         background: var(--primary-hover);
         transform: translateY(-3px);
-        box-shadow: 0 10px 20px rgba(230, 0, 0, 0.3);
       }
 
-      /* SECTIONS GENERAL */
+      /* SEÇÃO FÉ */
+      .faith-section {
+        background: linear-gradient(rgba(230, 0, 0, 0.1), rgba(0, 0, 0, 0.9));
+        padding: 80px 8%;
+        text-align: center;
+        border-top: 1px solid var(--primary);
+        border-bottom: 1px solid var(--primary);
+      }
+
+      .faith-section h2 {
+        font-style: italic;
+      }
+
+      /* SEÇÕES GERAIS */
       section {
         padding: 100px 8%;
       }
 
       .section-title {
-        margin-bottom: 60px;
         text-align: center;
+        margin-bottom: 60px;
       }
 
       .section-title h2 {
         font-size: 2.5rem;
         position: relative;
-        display: inline-block;
         padding-bottom: 10px;
       }
 
@@ -206,7 +194,7 @@
         background: var(--primary);
       }
 
-      /* CARDS SERVIÇOS */
+      /* GRID SERVIÇOS */
       .grid-services {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -219,8 +207,11 @@
         border-radius: 12px;
         border: 1px solid var(--glass);
         transition: var(--transition);
-        position: relative;
-        overflow: hidden;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--primary);
       }
 
       .service-card i {
@@ -230,18 +221,7 @@
         display: block;
       }
 
-      .service-card h3 {
-        margin-bottom: 10px;
-        font-size: 1.2rem;
-      }
-
-      .service-card:hover {
-        background: #252525;
-        transform: translateY(-10px);
-        border-color: var(--primary);
-      }
-
-      /* DIFERENCIAIS GRID */
+      /* DIFERENCIAIS */
       .diff-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -254,7 +234,6 @@
         padding: 20px;
         border-radius: 10px;
         text-align: center;
-        border: 1px solid transparent;
         transition: var(--transition);
       }
 
@@ -265,8 +244,8 @@
 
       .diff-card i {
         color: var(--primary);
-        margin-bottom: 10px;
         font-size: 1.5rem;
+        margin-bottom: 10px;
       }
 
       /* DEPOIMENTOS */
@@ -283,21 +262,15 @@
         border: 1px solid rgba(255, 255, 255, 0.1);
       }
 
-      .user-info {
-        display: flex;
-        align-items: center;
-        margin-bottom: 20px;
-      }
-
       .user-info img {
-        width: 50px;
-        height: 50px;
+        width: 60px;
+        height: 60px;
         border-radius: 50%;
-        margin-right: 15px;
         border: 2px solid var(--primary);
+        object-fit: cover;
       }
 
-      /* CONTATO E MAPA */
+      /* CONTATO */
       .contact-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -315,12 +288,18 @@
         filter: grayscale(1) invert(0.92);
       }
 
-      /* FLOATING BUTTONS */
-      .whatsapp-float {
+      /* FLOATING SOCIAL BUTTONS */
+      .social-float-container {
         position: fixed;
         bottom: 30px;
         right: 30px;
-        background: #25d366;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        z-index: 9999;
+      }
+
+      .social-icon {
         width: 60px;
         height: 60px;
         border-radius: 50%;
@@ -330,15 +309,30 @@
         color: white;
         font-size: 30px;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        z-index: 999;
         transition: var(--transition);
+        text-decoration: none;
       }
 
-      .whatsapp-float:hover {
-        transform: scale(1.1) rotate(15deg);
+      .social-icon.whatsapp {
+        background: #25d366;
       }
 
-      /* REVEAL ANIMATION */
+      .social-icon.instagram {
+        background: radial-gradient(
+          circle at 30% 107%,
+          #fdf497 0%,
+          #fdf497 5%,
+          #fd5949 45%,
+          #d6249f 60%,
+          #285aeb 90%
+        );
+      }
+
+      .social-icon:hover {
+        transform: scale(1.1) rotate(8deg);
+      }
+
+      /* ANIMATION */
       .reveal {
         opacity: 0;
         transform: translateY(30px);
@@ -383,8 +377,7 @@
         <h1>Mecânica de <span>Alta Performance.</span></h1>
         <p>
           Realizamos serviços completos de manutenção preventiva e corretiva,
-          com profissionais experientes, equipamentos modernos e compromisso
-          total com a qualidade.
+          com profissionais experientes e equipamentos modernos.
         </p>
         <div class="hero-btns">
           <a href="https://wa.me/5521964275964" class="btn btn-primary"
@@ -402,7 +395,12 @@
 
     <div class="faith-section">
       <div class="reveal">
-        <div class="icon-divider"><i class="fas fa-trophy"></i></div>
+        <div
+          class="icon-divider"
+          style="color: var(--primary); font-size: 2rem; margin-bottom: 20px"
+        >
+          <i class="fas fa-trophy"></i>
+        </div>
         <h2>“Onde a fé guia o trabalho e a qualidade move resultados”</h2>
       </div>
     </div>
@@ -416,8 +414,7 @@
           style="font-size: 1.1rem; color: var(--text-dim); margin-bottom: 40px"
         >
           Utilizamos peças de qualidade, equipamentos modernos e seguimos
-          rigorosamente todas as recomendações dos fabricantes para garantir a
-          longevidade do seu veículo.
+          rigorosamente todas as recomendações dos fabricantes.
         </p>
 
         <div class="diff-grid">
@@ -483,9 +480,6 @@
           <p>Análise tecnológica avançada em todos os sistemas do carro.</p>
         </div>
       </div>
-      <p style="text-align: center; margin-top: 40px; color: var(--text-dim)">
-        ➕ Outros serviços mecânicos em geral à sua disposição.
-      </p>
     </section>
 
     <section id="depoimentos" class="reveal">
@@ -494,29 +488,99 @@
       </div>
       <div class="testimonials-grid">
         <div class="testimonial-card">
-          <div class="user-info">
-            <img src="https://i.pravatar.cc/100?img=11" alt="Cliente" />
+          <div
+            class="user-info"
+            style="
+              display: flex;
+              align-items: center;
+              gap: 15px;
+              margin-bottom: 15px;
+            "
+          >
+            <img
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop"
+              alt="Jonatas"
+            />
             <div>
-              <strong>Ricardo Alves</strong><br />
-              <small style="color: #f5b50a">⭐⭐⭐⭐⭐</small>
+              <strong>Jonatas Souza</strong><br />
+              <small style="color: #f5b50a">⭐⭐⭐⭐⭐ - 2 anos atrás</small>
             </div>
           </div>
           <p>
-            "O diferencial aqui é a transparência. Eles te mostram exatamente o
-            que está errado antes de trocar."
+            Venho aqui agradecer e parabenizar pelo serviço. Ficou excelente o
+            trabalho👏🏼👏🏼. Deve ser reconhecido quando existe profissionalismo!
           </p>
         </div>
+
         <div class="testimonial-card">
-          <div class="user-info">
-            <img src="https://i.pravatar.cc/100?img=5" alt="Cliente" />
+          <div
+            class="user-info"
+            style="
+              display: flex;
+              align-items: center;
+              gap: 15px;
+              margin-bottom: 15px;
+            "
+          >
+            <img
+              src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop"
+              alt="Leonardo"
+            />
             <div>
-              <strong>Juliana Costa</strong><br />
-              <small style="color: #f5b50a">⭐⭐⭐⭐⭐</small>
+              <strong>Leonardo Pereira</strong><br />
+              <small style="color: #f5b50a">⭐⭐⭐⭐⭐ - 2 meses atrás</small>
+            </div>
+          </div>
+          <p>Lanternagem e pintura de excelente qualidade. Recomendo muito.</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div
+            class="user-info"
+            style="
+              display: flex;
+              align-items: center;
+              gap: 15px;
+              margin-bottom: 15px;
+            "
+          >
+            <img
+              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop"
+              alt="Carlos"
+            />
+            <div>
+              <strong>Carlos Souza</strong><br />
+              <small style="color: #f5b50a">⭐⭐⭐⭐⭐ - 1 ano atrás</small>
             </div>
           </div>
           <p>
-            "Levei meu carro para revisão e parecia novo quando saiu.
-            Atendimento nota 10!"
+            Profissionais qualificados. Indico a Maralex, estou satisfeito com o
+            serviço executado. Equipe nota 10.
+          </p>
+        </div>
+
+        <div class="testimonial-card">
+          <div
+            class="user-info"
+            style="
+              display: flex;
+              align-items: center;
+              gap: 15px;
+              margin-bottom: 15px;
+            "
+          >
+            <img
+              src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop"
+              alt="Priscila"
+            />
+            <div>
+              <strong>Priscila Reges</strong><br />
+              <small style="color: #f5b50a">⭐⭐⭐⭐⭐ - 3 anos atrás</small>
+            </div>
+          </div>
+          <p>
+            Serviço de excelência! Marcelo e toda equipe estão de parabéns.
+            Devolveram nosso corsinha novinho. Gratidão! 🙏🏼
           </p>
         </div>
       </div>
@@ -526,43 +590,33 @@
       <div class="contact-container">
         <div>
           <h2 style="margin-bottom: 20px">Fale Conosco</h2>
-          <p style="margin-bottom: 30px; color: var(--text-dim)">
-            Estamos prontos para atender você e seu veículo.
-          </p>
-          <p>
+          <p style="margin-bottom: 20px">
             <i
               class="fas fa-phone"
               style="color: var(--primary); margin-right: 10px"
             ></i>
             (21) 2759-0228
           </p>
-          <p>
+          <p style="margin-bottom: 20px">
             <i
               class="fab fa-whatsapp"
               style="color: var(--primary); margin-right: 10px"
             ></i>
             (21) 96427-5964
           </p>
-          <p>
+          <p style="margin-bottom: 30px">
             <i
               class="fas fa-map-marker-alt"
               style="color: var(--primary); margin-right: 10px"
             ></i>
             Rua Guarujá, 81 – Belford Roxo – RJ
           </p>
-          <hr
-            style="
-              margin: 25px 0;
-              border: 0;
-              border-top: 1px solid var(--glass);
-            "
-          />
           <h3>Horário de Funcionamento</h3>
           <p>Segunda a Sexta: 08h às 18h<br />Sábados: 08h às 12h</p>
         </div>
         <div>
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.5!2d-43.3!3d-22.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDQyJzAwLjAiUyA0M8KwMTgnMDAuMCJX!5e0!3m2!1spt-BR!2sbr!4v1625000000000!5m2!1spt-BR!2sbr"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3681.332467332219!2d-43.3883838!3d-22.7214533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9967008c495945%3A0x6e26715456f4d852!2sR.%20Guaruj%C3%A1%2C%2081%20-%20Vila%20Pauline%2C%20Belford%20Roxo%20-%20RJ%2C%2026115-300!5e0!3m2!1spt-BR!2sbr!4v1700000000000"
             allowfullscreen=""
             loading="lazy"
           ></iframe>
@@ -582,13 +636,20 @@
       </p>
     </footer>
 
-    <a
-      href="https://wa.me/5521964275964"
-      class="whatsapp-float"
-      target="_blank"
-    >
-      <i class="fab fa-whatsapp"></i>
-    </a>
+    <div class="social-float-container">
+      <a
+        href="https://www.instagram.com/oficinamaralex"
+        class="social-icon instagram"
+        target="_blank"
+        ><i class="fab fa-instagram"></i
+      ></a>
+      <a
+        href="https://wa.me/5521964275964"
+        class="social-icon whatsapp"
+        target="_blank"
+        ><i class="fab fa-whatsapp"></i
+      ></a>
+    </div>
 
     <script>
       window.addEventListener("scroll", () => {
@@ -602,12 +663,9 @@
         reveals.forEach((el) => {
           const windowHeight = window.innerHeight;
           const elementTop = el.getBoundingClientRect().top;
-          if (elementTop < windowHeight - 100) {
-            el.classList.add("active");
-          }
+          if (elementTop < windowHeight - 100) el.classList.add("active");
         });
       };
-
       window.addEventListener("scroll", revealElements);
       window.addEventListener("load", revealElements);
     </script>
