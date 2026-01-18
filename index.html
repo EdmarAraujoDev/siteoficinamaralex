@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oficina Maralex | Centro Automotivo Premium</title>
+    <meta
+      name="description"
+      content="Mecânica de alta precisão em Belford Roxo. Tecnologia, transparência e garantia para o seu veículo."
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Rajdhani:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      :root {
+        --primary: #e60000;
+        --primary-hover: #ff1a1a;
+        --bg-dark: #0f0f0f;
+        --card-bg: #1a1a1a;
+        --text-main: #ffffff;
+        --text-dim: #b3b3b3;
+        --glass: rgba(255, 255, 255, 0.05);
+        --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+
+      body {
+        background-color: var(--bg-dark);
+        color: var(--text-main);
+        overflow-x: hidden;
+        line-height: 1.6;
+      }
+
+      h1,
+      h2,
+      h3,
+      .nav-logo {
+        font-family: "Rajdhani", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      /* HEADER & NAV */
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        padding: 20px 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: var(--transition);
+        backdrop-filter: blur(10px);
+        background: rgba(0, 0, 0, 0.2);
+      }
+
+      header.scrolled {
+        padding: 12px 5%;
+        background: rgba(15, 15, 15, 0.95);
+        border-bottom: 1px solid var(--glass);
+      }
+
+      .logo-text {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: var(--primary);
+        text-decoration: none;
+      }
+
+      nav a {
+        color: var(--text-main);
+        margin-left: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: var(--transition);
+        opacity: 0.8;
+      }
+
+      nav a:hover {
+        color: var(--primary);
+        opacity: 1;
+      }
+
+      /* HERO SECTION */
+      .hero {
+        height: 100vh;
+        background:
+          linear-gradient(to right, rgba(0, 0, 0, 0.9) 30%, transparent),
+          url("fundo.png") center/cover;
+        display: flex;
+        align-items: center;
+        padding: 0 8%;
+      }
+
+      .hero-content {
+        max-width: 700px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        line-height: 1.1;
+        margin-bottom: 20px;
+      }
+
+      .hero h1 span {
+        color: var(--primary);
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        color: var(--text-dim);
+        margin-bottom: 40px;
+        border-left: 3px solid var(--primary);
+        padding-left: 20px;
+      }
+
+      /* NOVA SEÇÃO: SLOGAN DE FÉ E QUALIDADE */
+      .faith-section {
+        background:
+          linear-gradient(rgba(230, 0, 0, 0.1), rgba(0, 0, 0, 0.9)),
+          url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
+        padding: 80px 8%;
+        text-align: center;
+        border-top: 1px solid var(--primary);
+        border-bottom: 1px solid var(--primary);
+      }
+
+      .faith-section h2 {
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        color: #fff;
+        font-style: italic;
+        text-shadow: 0 0 20px rgba(230, 0, 0, 0.5);
+      }
+
+      .faith-section .icon-divider {
+        color: var(--primary);
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+
+      .btn {
+        padding: 16px 35px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 700;
+        display: inline-block;
+        transition: var(--transition);
+        cursor: pointer;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: white;
+        margin-right: 15px;
+      }
+
+      .btn-primary:hover {
+        background: var(--primary-hover);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(230, 0, 0, 0.3);
+      }
+
+      /* SECTIONS GENERAL */
+      section {
+        padding: 100px 8%;
+      }
+
+      .section-title {
+        margin-bottom: 60px;
+        text-align: center;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        position: relative;
+        display: inline-block;
+        padding-bottom: 10px;
+      }
+
+      .section-title h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+      }
+
+      /* CARDS SERVIÇOS */
+      .grid-services {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+      }
+
+      .service-card {
+        background: var(--card-bg);
+        padding: 40px;
+        border-radius: 12px;
+        border: 1px solid var(--glass);
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .service-card i {
+        font-size: 2rem;
+        color: var(--primary);
+        margin-bottom: 20px;
+        display: block;
+      }
+
+      .service-card h3 {
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+      }
+
+      .service-card:hover {
+        background: #252525;
+        transform: translateY(-10px);
+        border-color: var(--primary);
+      }
+
+      /* DIFERENCIAIS GRID */
+      .diff-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-top: 40px;
+      }
+
+      .diff-card {
+        background: var(--glass);
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        border: 1px solid transparent;
+        transition: var(--transition);
+      }
+
+      .diff-card:hover {
+        border-color: var(--primary);
+        background: rgba(230, 0, 0, 0.05);
+      }
+
+      .diff-card i {
+        color: var(--primary);
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+      }
+
+      /* DEPOIMENTOS */
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .testimonial-card {
+        background: var(--glass);
+        padding: 30px;
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .user-info {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .user-info img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 15px;
+        border: 2px solid var(--primary);
+      }
+
+      /* CONTATO E MAPA */
+      .contact-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        background: var(--card-bg);
+        padding: 40px;
+        border-radius: 20px;
+      }
+
+      iframe {
+        width: 100%;
+        height: 100%;
+        min-height: 300px;
+        border-radius: 15px;
+        filter: grayscale(1) invert(0.92);
+      }
+
+      /* FLOATING BUTTONS */
+      .whatsapp-float {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: #25d366;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 30px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        z-index: 999;
+        transition: var(--transition);
+      }
+
+      .whatsapp-float:hover {
+        transform: scale(1.1) rotate(15deg);
+      }
+
+      /* REVEAL ANIMATION */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease-out;
+      }
+
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          display: none;
+        }
+
+        .contact-container {
+          grid-template-columns: 1fr;
+        }
+
+        .hero h1 {
+          font-size: 2.8rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header id="header">
+      <a href="#" class="logo-text">MARALEX</a>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h1>Mecânica de <span>Alta Performance.</span></h1>
+        <p>
+          Realizamos serviços completos de manutenção preventiva e corretiva,
+          com profissionais experientes, equipamentos modernos e compromisso
+          total com a qualidade.
+        </p>
+        <div class="hero-btns">
+          <a href="https://wa.me/5521964275964" class="btn btn-primary"
+            >Agendar Revisão</a
+          >
+          <a
+            href="#servicos"
+            class="btn"
+            style="border: 1px solid white; color: white"
+            >Ver Serviços</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <div class="faith-section">
+      <div class="reveal">
+        <div class="icon-divider"><i class="fas fa-trophy"></i></div>
+        <h2>“Onde a fé guia o trabalho e a qualidade move resultados”</h2>
+      </div>
+    </div>
+
+    <section id="sobre" class="reveal">
+      <div class="section-title">
+        <h2>Por que escolher a Oficina Maralex?</h2>
+      </div>
+      <div style="text-align: center; max-width: 900px; margin: 0 auto">
+        <p
+          style="font-size: 1.1rem; color: var(--text-dim); margin-bottom: 40px"
+        >
+          Utilizamos peças de qualidade, equipamentos modernos e seguimos
+          rigorosamente todas as recomendações dos fabricantes para garantir a
+          longevidade do seu veículo.
+        </p>
+
+        <div class="diff-grid">
+          <div class="diff-card">
+            <i class="fas fa-handshake"></i>
+            <p>Confiança e transparência</p>
+          </div>
+          <div class="diff-card">
+            <i class="fas fa-shield-alt"></i>
+            <p>Garantia em todos os serviços</p>
+          </div>
+          <div class="diff-card">
+            <i class="fas fa-bolt"></i>
+            <p>Atendimento rápido e eficiente</p>
+          </div>
+          <div class="diff-card">
+            <i class="fas fa-tag"></i>
+            <p>Preço justo</p>
+          </div>
+          <div class="diff-card">
+            <i class="fas fa-user-check"></i>
+            <p>Profissionais experientes</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicos" style="background: #0a0a0a">
+      <div class="section-title reveal">
+        <h2>Nossas Especialidades</h2>
+      </div>
+      <div class="grid-services">
+        <div class="service-card reveal">
+          <i class="fas fa-tools"></i>
+          <h3>🔧 Revisão Completa</h3>
+          <p>Manutenção detalhada para prevenir falhas inesperadas.</p>
+        </div>
+        <div class="service-card reveal">
+          <i class="fas fa-oil-can"></i>
+          <h3>🛢️ Troca de Óleo</h3>
+          <p>Lubrificantes de alta qualidade para proteger seu motor.</p>
+        </div>
+        <div class="service-card reveal">
+          <i class="fas fa-microchip"></i>
+          <h3>⚙️ Injeção Eletrônica</h3>
+          <p>Diagnóstico e reparo preciso do sistema de injeção.</p>
+        </div>
+        <div class="service-card reveal">
+          <i class="fas fa-sync-alt"></i>
+          <h3>🔁 Fluido de Câmbio</h3>
+          <p>Troca especializada de fluido para câmbio automático.</p>
+        </div>
+        <div class="service-card reveal">
+          <i class="fas fa-car"></i>
+          <h3>🚗 Preventiva</h3>
+          <p>
+            A melhor forma de economizar é cuidando antes do problema aparecer.
+          </p>
+        </div>
+        <div class="service-card reveal">
+          <i class="fas fa-laptop-medical"></i>
+          <h3>🧰 Diagnóstico</h3>
+          <p>Análise tecnológica avançada em todos os sistemas do carro.</p>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 40px; color: var(--text-dim)">
+        ➕ Outros serviços mecânicos em geral à sua disposição.
+      </p>
+    </section>
+
+    <section id="depoimentos" class="reveal">
+      <div class="section-title">
+        <h2>Quem confia, aprova</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="user-info">
+            <img src="https://i.pravatar.cc/100?img=11" alt="Cliente" />
+            <div>
+              <strong>Ricardo Alves</strong><br />
+              <small style="color: #f5b50a">⭐⭐⭐⭐⭐</small>
+            </div>
+          </div>
+          <p>
+            "O diferencial aqui é a transparência. Eles te mostram exatamente o
+            que está errado antes de trocar."
+          </p>
+        </div>
+        <div class="testimonial-card">
+          <div class="user-info">
+            <img src="https://i.pravatar.cc/100?img=5" alt="Cliente" />
+            <div>
+              <strong>Juliana Costa</strong><br />
+              <small style="color: #f5b50a">⭐⭐⭐⭐⭐</small>
+            </div>
+          </div>
+          <p>
+            "Levei meu carro para revisão e parecia novo quando saiu.
+            Atendimento nota 10!"
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="reveal">
+      <div class="contact-container">
+        <div>
+          <h2 style="margin-bottom: 20px">Fale Conosco</h2>
+          <p style="margin-bottom: 30px; color: var(--text-dim)">
+            Estamos prontos para atender você e seu veículo.
+          </p>
+          <p>
+            <i
+              class="fas fa-phone"
+              style="color: var(--primary); margin-right: 10px"
+            ></i>
+            (21) 2759-0228
+          </p>
+          <p>
+            <i
+              class="fab fa-whatsapp"
+              style="color: var(--primary); margin-right: 10px"
+            ></i>
+            (21) 96427-5964
+          </p>
+          <p>
+            <i
+              class="fas fa-map-marker-alt"
+              style="color: var(--primary); margin-right: 10px"
+            ></i>
+            Rua Guarujá, 81 – Belford Roxo – RJ
+          </p>
+          <hr
+            style="
+              margin: 25px 0;
+              border: 0;
+              border-top: 1px solid var(--glass);
+            "
+          />
+          <h3>Horário de Funcionamento</h3>
+          <p>Segunda a Sexta: 08h às 18h<br />Sábados: 08h às 12h</p>
+        </div>
+        <div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.5!2d-43.3!3d-22.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDQyJzAwLjAiUyA0M8KwMTgnMDAuMCJX!5e0!3m2!1spt-BR!2sbr!4v1625000000000!5m2!1spt-BR!2sbr"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <footer
+      style="
+        padding: 40px;
+        text-align: center;
+        border-top: 1px solid var(--glass);
+      "
+    >
+      <p style="color: var(--text-dim); font-size: 0.9rem">
+        © 2026 Oficina Maralex. Todos os direitos reservados.
+      </p>
+    </footer>
+
+    <a
+      href="https://wa.me/5521964275964"
+      class="whatsapp-float"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+      window.addEventListener("scroll", () => {
+        const header = document.getElementById("header");
+        if (window.scrollY > 50) header.classList.add("scrolled");
+        else header.classList.remove("scrolled");
+      });
+
+      const revealElements = () => {
+        const reveals = document.querySelectorAll(".reveal");
+        reveals.forEach((el) => {
+          const windowHeight = window.innerHeight;
+          const elementTop = el.getBoundingClientRect().top;
+          if (elementTop < windowHeight - 100) {
+            el.classList.add("active");
+          }
+        });
+      };
+
+      window.addEventListener("scroll", revealElements);
+      window.addEventListener("load", revealElements);
+    </script>
+  </body>
+</html>
