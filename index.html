@@ -10,7 +10,7 @@
     />
 
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Rajdhani:wght@600;700&family=Playball&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Rajdhani:wght@600;700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -24,10 +24,10 @@
         --primary: #ff0000;
         --primary-glow: rgba(255, 0, 0, 0.4);
         --bg-dark: #050505;
-        --card-bg: rgba(25, 25, 25, 0.8);
+        --card-bg: rgba(25, 25, 25, 0.85);
         --text-main: #ffffff;
         --text-dim: #d0d0d0;
-        --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       }
 
       * {
@@ -53,13 +53,13 @@
         letter-spacing: 2px;
       }
 
-      /* HEADER */
+      /* --- HEADER & NAVIGATION --- */
       header {
         position: fixed;
         top: 0;
         width: 100%;
         z-index: 1000;
-        padding: 25px 8%;
+        padding: 20px 5%;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -67,14 +67,14 @@
       }
 
       header.scrolled {
-        padding: 12px 8%;
-        background: rgba(5, 5, 5, 0.9);
+        padding: 10px 5%;
+        background: rgba(5, 5, 5, 0.95);
         backdrop-filter: blur(20px);
         border-bottom: 1px solid rgba(255, 0, 0, 0.3);
       }
 
       .main-logo {
-        height: 100px;
+        height: 70px;
         transition: var(--transition);
       }
 
@@ -82,16 +82,27 @@
         height: 50px;
       }
 
+      .menu-toggle {
+        display: none;
+        font-size: 1.8rem;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+      }
+
       nav a {
         color: var(--text-main);
-        margin-left: 30px;
+        margin-left: 25px;
         text-decoration: none;
         font-weight: 700;
-        font-size: 0.8rem;
-        letter-spacing: 1.5px;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
         opacity: 0.7;
         transition: 0.3s;
-        position: relative;
       }
 
       nav a:hover {
@@ -100,22 +111,22 @@
         text-shadow: 0 0 10px var(--primary-glow);
       }
 
-      /* HERO COM PARALLAX */
+      /* --- HERO SECTION --- */
       .hero {
-        height: 100vh;
+        min-height: 100vh;
         background:
-          linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
+          linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
           url("fundo.png") center/cover no-repeat fixed;
         display: flex;
         align-items: center;
-        padding: 0 8%;
-        flex-direction: column;
         justify-content: center;
+        padding: 120px 5% 60px;
         text-align: center;
+        flex-direction: column;
       }
 
       .hero h1 {
-        font-size: clamp(2.5rem, 8vw, 5rem);
+        font-size: clamp(2.2rem, 8vw, 5rem);
         line-height: 1.1;
         margin-bottom: 25px;
         font-weight: 800;
@@ -127,24 +138,33 @@
       }
 
       .hero p {
-        font-size: 1.2rem;
+        font-size: clamp(1rem, 4vw, 1.25rem);
         color: var(--text-dim);
         margin-bottom: 40px;
+        max-width: 750px;
         border-left: 5px solid var(--primary);
-        padding-left: 25px;
-        max-width: 700px;
+        padding-left: 20px;
+        text-align: left;
       }
 
-      /* BOTÕES INTERATIVOS */
+      .hero-buttons {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      /* --- BUTTONS --- */
       .btn {
         padding: 18px 35px;
         border-radius: 12px;
         text-decoration: none;
         font-weight: 800;
         text-transform: uppercase;
-        transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: 0.3s;
         display: inline-block;
         cursor: pointer;
+        letter-spacing: 1px;
       }
 
       .btn-primary {
@@ -154,7 +174,7 @@
       }
 
       .btn-primary:hover {
-        transform: translateY(-5px) scale(1.02);
+        transform: translateY(-5px);
         box-shadow: 0 12px 25px var(--primary-glow);
       }
 
@@ -165,15 +185,14 @@
 
       .btn-secondary:hover {
         background: var(--primary);
-        box-shadow: 0 0 20px var(--primary-glow);
       }
 
-      /* ESTATÍSTICAS */
+      /* --- GRID & CARDS --- */
       .authority-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 30px;
-        padding: 80px 8%;
+        padding: 80px 5%;
       }
 
       .stat-card {
@@ -188,16 +207,27 @@
       .stat-card:hover {
         transform: translateY(-10px);
         border-color: var(--primary);
-        background: rgba(30, 30, 30, 0.9);
       }
 
-      /* SERVIÇOS */
+      .about-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        padding: 100px 5%;
+        align-items: center;
+      }
+
+      .about-img img {
+        width: 100%;
+        border-radius: 25px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
       .grid-services {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 25px;
-        padding: 0 8%;
-        margin-bottom: 100px;
+        padding: 0 5% 100px;
       }
 
       .service-card {
@@ -205,14 +235,7 @@
         padding: 40px;
         border-radius: 20px;
         border: 1px solid rgba(255, 255, 255, 0.05);
-        transition: var(--transition);
         backdrop-filter: blur(10px);
-      }
-
-      .service-card:hover {
-        border-color: var(--primary);
-        transform: scale(1.03);
-        box-shadow: 0 10px 30px -10px var(--primary-glow);
       }
 
       .service-card i {
@@ -220,16 +243,32 @@
         color: var(--primary);
         margin-bottom: 20px;
         display: block;
-        transition: 0.5s;
       }
 
-      .service-card:hover i {
-        transform: rotateY(360deg);
+      .service-card h3 {
+        margin-bottom: 15px;
       }
 
-      /* DEPOIMENTOS SLIDER */
+      .service-card ul {
+        list-style: none;
+        color: var(--text-dim);
+      }
+
+      .service-card ul li {
+        margin-bottom: 8px;
+        font-size: 0.95rem;
+      }
+
+      .service-card ul li::before {
+        content: "✓";
+        color: var(--primary);
+        margin-right: 8px;
+        font-weight: bold;
+      }
+
+      /* --- REVIEWS SLIDER --- */
       .reviews-wrapper {
-        padding: 80px 8%;
+        padding: 80px 5%;
         background: #080808;
         overflow: hidden;
       }
@@ -238,41 +277,52 @@
         display: flex;
         gap: 20px;
         overflow-x: auto;
-        padding: 20px 0;
-        scrollbar-width: thin;
-        scrollbar-color: var(--primary) transparent;
+        padding: 30px 0;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+
+      .reviews-container::-webkit-scrollbar {
+        display: none;
       }
 
       .google-card {
-        min-width: 320px;
+        min-width: 300px;
+        max-width: 300px;
         background: #fff;
         color: #111;
-        padding: 30px;
+        padding: 25px;
         border-radius: 20px;
         flex-shrink: 0;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        transition: 0.3s;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
       }
 
-      .google-card:hover {
-        transform: translateY(-5px);
+      /* --- CONTACT & MAP --- */
+      .contact-card {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        background: #111;
+        border-radius: 30px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.05);
       }
 
-      /* MAPA INTERATIVO */
+      .contact-info {
+        padding: 60px 40px;
+      }
+
+      .map-box {
+        min-height: 400px;
+      }
+
       .map-box iframe {
         width: 100%;
         height: 100%;
-        min-height: 400px;
         border: 0;
         filter: grayscale(1) invert(0.9);
-        transition: 0.5s;
       }
 
-      .map-box:hover iframe {
-        filter: grayscale(0) invert(0);
-      }
-
-      /* SOCIAL FLOAT ANIMADO */
+      /* --- FLOAT ELEMENTS --- */
       .social-float {
         position: fixed;
         bottom: 30px;
@@ -286,7 +336,7 @@
       .s-icon {
         width: 60px;
         height: 60px;
-        border-radius: 18px;
+        border-radius: 20px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -294,36 +344,71 @@
         font-size: 28px;
         text-decoration: none;
         transition: 0.3s;
-        animation: float 3s ease-in-out infinite;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
       }
 
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-
-        50% {
-          transform: translateY(-10px);
-        }
-      }
-
+      /* --- MOBILE RESPONSIVITY --- */
       @media (max-width: 968px) {
-        header nav {
-          display: none;
+        header {
+          padding: 20px 5%;
+        }
+
+        .menu-toggle {
+          display: block;
+        }
+
+        nav {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 80%;
+          height: 100vh;
+          background: #000;
+          flex-direction: column;
+          justify-content: center;
+          transition: 0.5s;
+          z-index: 999;
+          border-left: 2px solid var(--primary);
+        }
+
+        nav.active {
+          right: 0;
+        }
+
+        nav a {
+          margin: 20px 0;
+          font-size: 1.2rem;
         }
 
         .hero p {
           border-left: none;
           padding-left: 0;
+          text-align: center;
         }
 
         .about-section {
-          grid-template-columns: 1fr !important;
+          grid-template-columns: 1fr;
+          text-align: center;
+          padding: 60px 5%;
         }
 
         .contact-card {
-          grid-template-columns: 1fr !important;
+          grid-template-columns: 1fr;
+        }
+
+        .contact-info {
+          padding: 40px 20px;
+        }
+
+        .social-float {
+          bottom: 20px;
+          right: 20px;
+        }
+
+        .s-icon {
+          width: 50px;
+          height: 50px;
+          font-size: 22px;
         }
       }
     </style>
@@ -332,7 +417,10 @@
   <body>
     <header id="header">
       <img src="logo.png" alt="Logo Oficina Maralex" class="main-logo" />
-      <nav>
+      <div class="menu-toggle" id="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+      <nav id="nav-menu">
         <a href="#home">INÍCIO</a>
         <a href="#sobre">A OFICINA</a>
         <a href="#servicos">SERVIÇOS</a>
@@ -345,7 +433,7 @@
       <h1 data-aos="fade-down">
         Oficina Maralex – <br /><span>Tradição e Qualidade</span>
       </h1>
-      <p data-aos="fade-right" data-aos-delay="200">
+      <p data-aos="fade-up" data-aos-delay="200">
         Desde 2000, transformando tecnologia em segurança. Referência absoluta
         em Belford Roxo com 26 anos de tradição e equipamentos de última
         geração.
@@ -355,81 +443,74 @@
           href="https://wa.me/5521964275964"
           target="_blank"
           class="btn btn-primary"
-          >AGENDAR NO WHATSAPP</a
+          ><i class="fab fa-whatsapp"></i> AGENDAR AGORA</a
         >
-        <a href="#servicos" class="btn btn-secondary">VER SERVIÇOS</a>
+        <a href="#servicos" class="btn btn-secondary">NOSSOS SERVIÇOS</a>
       </div>
     </section>
 
     <section class="authority-grid">
       <div class="stat-card" data-aos="zoom-in">
-        <h2>+100 MIL</h2>
+        <h2 style="font-size: 3rem; color: var(--primary)">+100 MIL</h2>
         <p>Clientes Satisfeitos</p>
-        <span>Histórico de confiança total</span>
+        <small style="color: var(--text-dim)"
+          >Histórico de confiança total</small
+        >
+      </div>
+      <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
+        <h2 style="font-size: 3rem; color: var(--primary)">26 ANOS</h2>
+        <p>De Tradição</p>
+        <small style="color: var(--text-dim)"
+          >Evoluindo a cada quilômetro</small
+        >
       </div>
       <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
-        <h2>26 ANOS</h2>
-        <p>De Tradição</p>
-        <span>Evoluindo a cada quilômetro</span>
-      </div>
-      <div class="stat-card" data-aos="zoom-in" data-aos-delay="400">
-        <div style="color: #fbbc04; margin-bottom: 10px">
+        <div style="color: #fbbc04; font-size: 1.5rem; margin-bottom: 10px">
           <i class="fas fa-star"></i><i class="fas fa-star"></i
           ><i class="fas fa-star"></i><i class="fas fa-star"></i
           ><i class="fas fa-star"></i>
         </div>
-        <p>Nota Máxima</p>
-        <span>Avaliação 5.0 no Google</span>
+        <p>Nota Máxima Google</p>
+        <small style="color: var(--text-dim)"
+          >Avaliação 5.0 baseada em clientes</small
+        >
       </div>
     </section>
 
-    <section
-      id="sobre"
-      class="about-section"
-      style="
-        padding: 120px 8%;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 60px;
-        align-items: center;
-      "
-    >
+    <section id="sobre" class="about-section">
       <div class="about-img" data-aos="fade-right">
         <img
           src="https://images.unsplash.com/photo-1625047509168-a7026f36de04?q=80&w=2000&auto=format&fit=crop"
-          alt="Interior Oficina Maralex"
-          style="
-            width: 100%;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-          "
+          alt="Equipamentos Maralex"
         />
       </div>
       <div class="about-text" data-aos="fade-left">
         <h2 style="color: var(--primary); margin-bottom: 25px">
-          Cuidando do Seu Carro, Segurança e Confiança em Cada Serviço
+          Cuidando do Seu Carro, Segurança e Confiança
         </h2>
         <p>
           Com mais de 26 anos de atuação e mais de 100 mil veículos atendidos, a
           Maralex vai além de uma oficina: é um centro de excelência automotiva.
           Unimos o atendimento próximo de uma empresa familiar ao rigor
-          tecnológico e aos padrões das grandes montadoras.
+          tecnológico das grandes montadoras.
         </p>
         <p style="margin-top: 15px">
           Oferecemos diagnósticos precisos que evitam gastos desnecessários e
           garantem maior longevidade ao seu veículo.
         </p>
-        <a href="#servicos" class="btn btn-secondary" style="margin-top: 30px"
-          >VER ESPECIALIDADES</a
+        <a href="#contato" class="btn btn-secondary" style="margin-top: 30px"
+          >ONDE ESTAMOS</a
         >
       </div>
     </section>
 
     <section id="servicos">
       <div style="text-align: center; margin-bottom: 60px" data-aos="fade-up">
-        <h2>Nossos Serviços</h2>
-        <p style="color: var(--primary); letter-spacing: 2px">
-          SOLUÇÕES COMPLETAS DE PONTA A PONTA
+        <h2>Nossas Especialidades</h2>
+        <p
+          style="color: var(--primary); letter-spacing: 2px; font-weight: bold"
+        >
+          TECNOLOGIA DE PONTA PARA SEU VEÍCULO
         </p>
       </div>
       <div class="grid-services">
@@ -440,7 +521,6 @@
             <li>Diagnóstico via Scanner Pro</li>
             <li>Programação de Módulos</li>
             <li>Limpeza de Bicos Ultrassom</li>
-            <li>Reset de Parâmetros de Fábrica</li>
           </ul>
         </div>
         <div class="service-card" data-aos="fade-up" data-aos-delay="100">
@@ -456,105 +536,114 @@
           <i class="fas fa-snowflake"></i>
           <h3>Ar-Condicionado</h3>
           <ul>
-            <li>Carga de Gás e Teste de Vazamento</li>
+            <li>Carga de Gás R134a</li>
             <li>Higienização com Ozônio</li>
-            <li>Reparo Completo em Compressores</li>
+            <li>Reparo de Compressores</li>
           </ul>
         </div>
-        <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="service-card" data-aos="fade-up">
           <i class="fas fa-tools"></i>
           <h3>Mecânica Geral</h3>
           <ul>
             <li>Revisão Preventiva (Checklist)</li>
             <li>Troca de Correia Dentada</li>
-            <li>Arrefecimento e Fluidos</li>
+            <li>Sistema de Arrefecimento</li>
           </ul>
         </div>
-        <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
           <i class="fas fa-shield-alt"></i>
           <h3>Suspensão & Freios</h3>
           <ul>
             <li>Amortecedores e Molas</li>
-            <li>Diagnóstico de Sistema ABS</li>
-            <li>Pastilhas e Discos de Freio</li>
+            <li>Diagnóstico de ABS</li>
+            <li>Pastilhas e Discos</li>
           </ul>
         </div>
-        <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
           <i class="fas fa-car-crash"></i>
           <h3>Lanternagem</h3>
           <ul>
             <li>Reparos Estruturais</li>
             <li>Recuperação de Lataria</li>
-            <li>Serviço de Alta Precisão</li>
+            <li>Acabamento de Precisão</li>
           </ul>
         </div>
       </div>
     </section>
 
     <section class="reviews-wrapper" id="depoimentos">
-      <div style="text-align: center; margin-bottom: 40px" data-aos="fade-up">
-        <h2>O QUE NOSSOS CLIENTES DIZEM</h2>
+      <div style="text-align: center; margin-bottom: 30px" data-aos="fade-up">
+        <h2>Depoimentos de quem confia</h2>
+        <p style="color: var(--primary)">ARRASTE PARA O LADO PARA VER MAIS</p>
       </div>
       <div class="reviews-container" id="reviews-slider"></div>
     </section>
 
-    <section id="contato" class="contact-section" style="padding: 100px 8%">
-      <div
-        class="contact-card"
-        style="
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          background: #111;
-          border-radius: 30px;
-          overflow: hidden;
-          border: 1px solid rgba(255, 255, 255, 0.05);
-        "
-        data-aos="zoom-in"
-      >
-        <div class="contact-info" style="padding: 60px">
-          <h2 style="color: var(--primary); margin-bottom: 30px">
-            ONDE ESTAMOS
+    <section id="contato" style="padding: 100px 5% 60px">
+      <div class="contact-card" data-aos="zoom-in">
+        <div class="contact-info">
+          <h2 style="color: var(--primary); margin-bottom: 25px">
+            VISITE NOSSA UNIDADE
           </h2>
-          <p style="font-size: 1.2rem; margin-bottom: 20px">
-            <i class="fas fa-map-marker-alt" style="color: var(--primary)"></i>
-            Rua Guarujá, 81 - Lote XV, Belford Roxo
+          <p style="font-size: 1.1rem; margin-bottom: 15px">
+            <i
+              class="fas fa-map-marker-alt"
+              style="color: var(--primary); width: 25px"
+            ></i>
+            Rua Guarujá, 81 - Lote XV, Belford Roxo - RJ
           </p>
-          <p>
-            <i class="fab fa-whatsapp" style="color: var(--primary)"></i> (21)
-            2759-0228
+          <p style="margin-bottom: 10px">
+            <i
+              class="fas fa-phone"
+              style="color: var(--primary); width: 25px"
+            ></i>
+            (21) 2759-0228
           </p>
-          <p style="margin-bottom: 20px">
-            <i class="fab fa-whatsapp" style="color: var(--primary)"></i> (21)
-            96427-5964
+          <p style="margin-bottom: 25px">
+            <i
+              class="fab fa-whatsapp"
+              style="color: var(--primary); width: 25px"
+            ></i>
+            (21) 96427-5964
           </p>
-          <h3>Horário de Funcionamento</h3>
+
+          <h3 style="font-size: 1rem; margin-bottom: 10px">HORÁRIOS</h3>
           <p>Segunda a Sexta: 08:00 às 18:00</p>
           <p>Sábado: 08:00 às 12:00</p>
+
           <a
             href="https://wa.me/5521964275964"
             target="_blank"
             class="btn btn-primary"
-            style="margin-top: 40px; width: 100%; text-align: center"
-            >FALAR COM UM TÉCNICO AGORA</a
+            style="margin-top: 35px; width: 100%; text-align: center"
+            >FALAR COM TÉCNICO AGORA</a
           >
         </div>
         <div class="map-box">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.528340156943!2d-43.376837123795554!3d-22.7085732307842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x996427c8e9664f%3A0xc3f7380a9c6c8e3e!2sOficina%20Maralex!5e0!3m2!1spt-BR!2sbr!4v1700000000000"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.5908994537024!2d-43.3768344!3d-22.7058448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9964390500000001%3A0x6a0c0e0e0e0e0e0e!2sRua%20Guaruj%C3%A1%2C%2081%20-%20Lote%20XV%2C%20Belford%20Roxo%20-%20RJ!5e0!3m2!1spt-BR!2sbr!4v1700000000000"
             loading="lazy"
           ></iframe>
         </div>
       </div>
     </section>
 
-    <footer style="padding: 60px 8%; text-align: center; background: #000">
+    <footer
+      style="
+        padding: 60px 5%;
+        text-align: center;
+        background: #000;
+        border-top: 1px solid #111;
+      "
+    >
       <img
         src="logo.png"
         alt="Maralex"
-        style="height: 120px; opacity: 0.8; margin-bottom: 20px"
+        style="height: 80px; margin-bottom: 20px"
       />
       <p style="color: var(--text-dim); font-size: 0.8rem">
-        OFICINA MARALEX © 2026 - TODOS OS DIREITOS RESERVADOS.
+        OFICINA MARALEX © 2026 - TRADIÇÃO DESDE 2000. TODOS OS DIREITOS
+        RESERVADOS.
       </p>
     </footer>
 
@@ -564,13 +653,13 @@
         target="_blank"
         class="s-icon"
         style="
-          background: linear-gradient(
-            45deg,
-            #f09433,
-            #e6683c,
-            #dc2743,
-            #cc2366,
-            #bc1888
+          background: radial-gradient(
+            circle at 30% 107%,
+            #fdf497 0%,
+            #fdf497 5%,
+            #fd5949 45%,
+            #d6249f 60%,
+            #285aeb 90%
           );
         "
         ><i class="fab fa-instagram"></i
@@ -579,17 +668,35 @@
         href="https://wa.me/5521964275964"
         target="_blank"
         class="s-icon"
-        style="background: #25d366"
+        style="background: #25d366; animation: float 3s infinite"
         ><i class="fab fa-whatsapp"></i
       ></a>
     </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-      // Inicializa animações
       AOS.init({ duration: 1000, once: true });
 
-      // LISTA ORIGINAL DE 50 DEPOIMENTOS RESTAURADA
+      // MENU MOBILE
+      const menuBtn = document.getElementById("mobile-menu-btn");
+      const navMenu = document.getElementById("nav-menu");
+
+      menuBtn.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+        menuBtn.innerHTML = navMenu.classList.contains("active")
+          ? '<i class="fas fa-times"></i>'
+          : '<i class="fas fa-bars"></i>';
+      });
+
+      // Fechar menu ao clicar em link
+      document.querySelectorAll("nav a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navMenu.classList.remove("active");
+          menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+      });
+
+      // LISTA DE 50 DEPOIMENTOS
       const reviews = [
         { n: "Carlos Alberto", t: "Confiança total. Equipe nota 10!" },
         {
@@ -790,24 +897,24 @@
       reviews.forEach((r, i) => {
         const card = document.createElement("div");
         card.className = "google-card";
-        const initial = r.n.charAt(0).toUpperCase();
         card.innerHTML = `
-                <div style="display:flex; align-items:center; margin-bottom:15px;">
-                    <div style="background:${colors[i % 5]}; width:45px; height:45px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:bold; margin-right:12px;">${initial}</div>
-                    <div style="font-weight:700;">${r.n}</div>
+                <div style="display:flex; align-items:center; margin-bottom:12px;">
+                    <div style="background:${colors[i % 5]}; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:bold; margin-right:12px; font-size:0.9rem;">${r.n[0]}</div>
+                    <div style="font-weight:700; font-size:0.9rem;">${r.n}</div>
                 </div>
-                <div style="color:#fbbc04; font-size:0.8rem; margin-bottom:10px;">
+                <div style="color:#fbbc04; font-size:0.8rem; margin-bottom:8px;">
                     <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                 </div>
-                <p style="font-size:0.9rem; color:#333; margin:0;">"${r.t}"</p>
+                <p style="font-size:0.85rem; color:#444; line-height:1.4;">"${r.t}"</p>
             `;
         slider.appendChild(card);
       });
 
-      // Header Scroll Effect
+      // Header Effect on Scroll
       window.addEventListener("scroll", () => {
-        const header = document.getElementById("header");
-        header.classList.toggle("scrolled", window.scrollY > 50);
+        document
+          .getElementById("header")
+          .classList.toggle("scrolled", window.scrollY > 50);
       });
     </script>
   </body>
