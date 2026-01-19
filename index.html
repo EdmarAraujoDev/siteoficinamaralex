@@ -111,12 +111,12 @@
         text-shadow: 0 0 10px var(--primary-glow);
       }
 
-      /* --- HERO SECTION --- */
+      /* --- HERO SECTION (Ajuste Banner Mobile) --- */
       .hero {
         min-height: 100vh;
         background:
-          linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
-          url("fundo.png") center/cover no-repeat fixed;
+          linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.85)),
+          url("Banner.png") center/cover no-repeat fixed;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -161,7 +161,7 @@
         text-decoration: none;
         font-weight: 800;
         text-transform: uppercase;
-        transition: 0.3s;
+        transition: var(--transition);
         display: inline-block;
         cursor: pointer;
         letter-spacing: 1px;
@@ -174,8 +174,8 @@
       }
 
       .btn-primary:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 25px var(--primary-glow);
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 12px 30px var(--primary-glow);
       }
 
       .btn-secondary {
@@ -185,6 +185,7 @@
 
       .btn-secondary:hover {
         background: var(--primary);
+        box-shadow: 0 0 20px var(--primary-glow);
       }
 
       /* --- GRID & CARDS --- */
@@ -207,6 +208,7 @@
       .stat-card:hover {
         transform: translateY(-10px);
         border-color: var(--primary);
+        background: rgba(40, 40, 40, 0.9);
       }
 
       .about-section {
@@ -221,6 +223,12 @@
         width: 100%;
         border-radius: 25px;
         border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: var(--transition);
+      }
+
+      .about-img img:hover {
+        transform: scale(1.02);
+        box-shadow: 0 0 30px rgba(255, 0, 0, 0.2);
       }
 
       .grid-services {
@@ -236,6 +244,13 @@
         border-radius: 20px;
         border: 1px solid rgba(255, 255, 255, 0.05);
         backdrop-filter: blur(10px);
+        transition: var(--transition);
+      }
+
+      .service-card:hover {
+        transform: scale(1.03);
+        border-color: var(--primary);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
       }
 
       .service-card i {
@@ -295,6 +310,11 @@
         border-radius: 20px;
         flex-shrink: 0;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        transition: 0.3s;
+      }
+
+      .google-card:hover {
+        transform: translateY(-5px);
       }
 
       /* --- CONTACT & MAP --- */
@@ -347,8 +367,18 @@
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
       }
 
+      .s-icon:hover {
+        transform: scale(1.1);
+      }
+
       /* --- MOBILE RESPONSIVITY --- */
       @media (max-width: 968px) {
+        /* Correção específica para o Banner não sumir no Mobile */
+        .hero {
+          background-attachment: scroll;
+          background-position: center top;
+        }
+
         header {
           padding: 20px 5%;
         }
@@ -430,15 +460,20 @@
     </header>
 
     <section class="hero" id="home">
-      <h1 data-aos="fade-down">
+      <h1 data-aos="fade-down" data-aos-duration="1200">
         Oficina Maralex – <br /><span>Tradição e Qualidade</span>
       </h1>
-      <p data-aos="fade-up" data-aos-delay="200">
+      <p data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
         Desde 2000, transformando tecnologia em segurança. Referência absoluta
         em Belford Roxo com 26 anos de tradição e equipamentos de última
         geração.
       </p>
-      <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+      <div
+        class="hero-buttons"
+        data-aos="fade-up"
+        data-aos-delay="400"
+        data-aos-duration="1000"
+      >
         <a
           href="https://wa.me/5521964275964"
           target="_blank"
@@ -450,21 +485,31 @@
     </section>
 
     <section class="authority-grid">
-      <div class="stat-card" data-aos="zoom-in">
+      <div class="stat-card" data-aos="zoom-in" data-aos-duration="800">
         <h2 style="font-size: 3rem; color: var(--primary)">+100 MIL</h2>
         <p>Clientes Satisfeitos</p>
         <small style="color: var(--text-dim)"
           >Histórico de confiança total</small
         >
       </div>
-      <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
+      <div
+        class="stat-card"
+        data-aos="zoom-in"
+        data-aos-delay="100"
+        data-aos-duration="800"
+      >
         <h2 style="font-size: 3rem; color: var(--primary)">26 ANOS</h2>
         <p>De Tradição</p>
         <small style="color: var(--text-dim)"
           >Evoluindo a cada quilômetro</small
         >
       </div>
-      <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
+      <div
+        class="stat-card"
+        data-aos="zoom-in"
+        data-aos-delay="200"
+        data-aos-duration="800"
+      >
         <div style="color: #fbbc04; font-size: 1.5rem; margin-bottom: 10px">
           <i class="fas fa-star"></i><i class="fas fa-star"></i
           ><i class="fas fa-star"></i><i class="fas fa-star"></i
@@ -478,13 +523,13 @@
     </section>
 
     <section id="sobre" class="about-section">
-      <div class="about-img" data-aos="fade-right">
+      <div class="about-img" data-aos="fade-right" data-aos-duration="1000">
         <img
           src="https://images.unsplash.com/photo-1625047509168-a7026f36de04?q=80&w=2000&auto=format&fit=crop"
           alt="Equipamentos Maralex"
         />
       </div>
-      <div class="about-text" data-aos="fade-left">
+      <div class="about-text" data-aos="fade-left" data-aos-duration="1000">
         <h2 style="color: var(--primary); margin-bottom: 25px">
           Cuidando do Seu Carro, Segurança e Confiança
         </h2>
@@ -514,7 +559,7 @@
         </p>
       </div>
       <div class="grid-services">
-        <div class="service-card" data-aos="fade-up">
+        <div class="service-card" data-aos="fade-up" data-aos-duration="800">
           <i class="fas fa-microchip"></i>
           <h3>Injeção Eletrônica</h3>
           <ul>
@@ -523,7 +568,12 @@
             <li>Limpeza de Bicos Ultrassom</li>
           </ul>
         </div>
-        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+        <div
+          class="service-card"
+          data-aos="fade-up"
+          data-aos-delay="100"
+          data-aos-duration="800"
+        >
           <i class="fas fa-cogs"></i>
           <h3>Câmbio & Transmissão</h3>
           <ul>
@@ -532,7 +582,12 @@
             <li>Substituição de Kit Embreagem</li>
           </ul>
         </div>
-        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+        <div
+          class="service-card"
+          data-aos="fade-up"
+          data-aos-delay="200"
+          data-aos-duration="800"
+        >
           <i class="fas fa-snowflake"></i>
           <h3>Ar-Condicionado</h3>
           <ul>
@@ -541,7 +596,7 @@
             <li>Reparo de Compressores</li>
           </ul>
         </div>
-        <div class="service-card" data-aos="fade-up">
+        <div class="service-card" data-aos="fade-up" data-aos-duration="800">
           <i class="fas fa-tools"></i>
           <h3>Mecânica Geral</h3>
           <ul>
@@ -550,7 +605,12 @@
             <li>Sistema de Arrefecimento</li>
           </ul>
         </div>
-        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+        <div
+          class="service-card"
+          data-aos="fade-up"
+          data-aos-delay="100"
+          data-aos-duration="800"
+        >
           <i class="fas fa-shield-alt"></i>
           <h3>Suspensão & Freios</h3>
           <ul>
@@ -559,7 +619,12 @@
             <li>Pastilhas e Discos</li>
           </ul>
         </div>
-        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+        <div
+          class="service-card"
+          data-aos="fade-up"
+          data-aos-delay="200"
+          data-aos-duration="800"
+        >
           <i class="fas fa-car-crash"></i>
           <h3>Lanternagem</h3>
           <ul>
@@ -580,7 +645,7 @@
     </section>
 
     <section id="contato" style="padding: 100px 5% 60px">
-      <div class="contact-card" data-aos="zoom-in">
+      <div class="contact-card" data-aos="zoom-in" data-aos-duration="1000">
         <div class="contact-info">
           <h2 style="color: var(--primary); margin-bottom: 25px">
             VISITE NOSSA UNIDADE
@@ -696,7 +761,7 @@
         });
       });
 
-      // LISTA DE 50 DEPOIMENTOS
+      // LISTA DE 50 DEPOIMENTOS (Preservada Integramente)
       const reviews = [
         { n: "Carlos Alberto", t: "Confiança total. Equipe nota 10!" },
         {
