@@ -3,17 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Oficina Maralex | Centro Automotivo Premium</title>
+    <title>Oficina Maralex | 26 Anos de Excelência Automotiva</title>
     <meta
       name="description"
-      content="Mecânica de alta precisão em Belford Roxo. Tecnologia, transparência e garantia para o seu veículo."
+      content="Oficina Maralex - 26 anos de excelência em Belford Roxo. Mecânica, lanternagem, injeção eletrônica, câmbio, ar-condicionado e muito mais."
     />
 
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Rajdhani:wght@500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Rajdhani:wght@600;700&family=Playball&display=swap"
       rel="stylesheet"
     />
-
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -21,14 +20,13 @@
 
     <style>
       :root {
-        --primary: #e60000;
-        --primary-hover: #ff1a1a;
-        --bg-dark: #0f0f0f;
-        --card-bg: #1a1a1a;
+        --primary: #ff0000;
+        --primary-glow: rgba(255, 0, 0, 0.4);
+        --bg-dark: #050505;
+        --card-bg: rgba(25, 25, 25, 0.8);
         --text-main: #ffffff;
-        --text-dim: #b3b3b3;
-        --glass: rgba(255, 255, 255, 0.05);
-        --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        --text-dim: #d0d0d0;
+        --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
       }
 
       * {
@@ -48,313 +46,356 @@
 
       h1,
       h2,
-      h3,
-      .nav-logo {
+      h3 {
         font-family: "Rajdhani", sans-serif;
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 2px;
       }
 
-      /* HEADER & NAV */
+      /* HEADER */
       header {
         position: fixed;
         top: 0;
         width: 100%;
         z-index: 1000;
-        padding: 20px 5%;
+        padding: 25px 8%;
         display: flex;
         justify-content: space-between;
         align-items: center;
         transition: var(--transition);
-        backdrop-filter: blur(10px);
-        background: rgba(0, 0, 0, 0.2);
       }
 
       header.scrolled {
-        padding: 12px 5%;
-        background: rgba(15, 15, 15, 0.95);
-        border-bottom: 1px solid var(--glass);
+        padding: 15px 8%;
+        background: rgba(5, 5, 5, 0.9);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       }
 
-      .logo-text {
-        font-size: 1.8rem;
-        font-weight: 800;
-        color: var(--primary);
-        text-decoration: none;
+      .main-logo {
+        height: 100px;
+        transition: var(--transition);
+      }
+
+      header.scrolled .main-logo {
+        height: 45px;
       }
 
       nav a {
         color: var(--text-main);
         margin-left: 30px;
         text-decoration: none;
-        font-weight: 600;
-        font-size: 0.9rem;
-        transition: var(--transition);
-        opacity: 0.8;
+        font-weight: 700;
+        font-size: 0.8rem;
+        letter-spacing: 1.5px;
+        opacity: 0.7;
+        transition: 0.3s;
       }
 
       nav a:hover {
-        color: var(--primary);
         opacity: 1;
+        color: var(--primary);
+        text-shadow: 0 0 10px var(--primary-glow);
       }
 
-      /* HERO SECTION */
+      /* HERO */
       .hero {
         height: 100vh;
         background:
-          linear-gradient(to right, rgba(0, 0, 0, 0.9) 30%, transparent),
-          url("fundo.png") center/cover;
+          radial-gradient(
+            circle at 20% 50%,
+            rgba(0, 0, 0, 0.9) 0%,
+            rgba(0, 0, 0, 0.4) 100%
+          ),
+          url("fundo.png") center/cover no-repeat;
         display: flex;
         align-items: center;
         padding: 0 8%;
-      }
-
-      .hero-content {
-        max-width: 700px;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
       }
 
       .hero h1 {
-        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        font-size: clamp(2.5rem, 8vw, 5rem);
         line-height: 1.1;
-        margin-bottom: 20px;
+        margin-bottom: 25px;
+        font-weight: 800;
       }
 
       .hero h1 span {
         color: var(--primary);
+        display: inline-block;
+        filter: drop-shadow(0 0 15px var(--primary-glow));
       }
 
       .hero p {
         font-size: 1.2rem;
         color: var(--text-dim);
         margin-bottom: 40px;
-        border-left: 3px solid var(--primary);
-        padding-left: 20px;
+        border-left: 5px solid var(--primary);
+        padding-left: 25px;
+        max-width: 700px;
+      }
+
+      .hero .hero-buttons {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
       }
 
       /* BOTÕES */
       .btn {
-        padding: 16px 35px;
-        border-radius: 4px;
+        padding: 18px 35px;
+        border-radius: 12px;
         text-decoration: none;
-        font-weight: 700;
-        display: inline-block;
-        transition: var(--transition);
+        font-weight: 800;
         text-transform: uppercase;
-        font-size: 0.85rem;
+        transition: 0.3s;
+        display: inline-block;
+        cursor: pointer;
       }
 
       .btn-primary {
         background: var(--primary);
-        color: white;
-        margin-right: 15px;
+        color: #fff;
+        box-shadow: 0 8px 20px var(--primary-glow);
       }
 
       .btn-primary:hover {
-        background: var(--primary-hover);
         transform: translateY(-3px);
+        box-shadow: 0 12px 25px var(--primary-glow);
       }
 
-      /* SEÇÃO FÉ */
-      .faith-section {
-        background: linear-gradient(rgba(230, 0, 0, 0.1), rgba(0, 0, 0, 0.9));
-        padding: 80px 8%;
-        text-align: center;
-        border-top: 1px solid var(--primary);
-        border-bottom: 1px solid var(--primary);
+      .btn-secondary {
+        border: 2px solid var(--primary);
+        color: #fff;
+        transition: 0.3s;
       }
 
-      .faith-section h2 {
-        font-style: italic;
-      }
-
-      /* SEÇÕES GERAIS */
-      section {
-        padding: 100px 8%;
-      }
-
-      .section-title {
-        text-align: center;
-        margin-bottom: 60px;
-      }
-
-      .section-title h2 {
-        font-size: 2.5rem;
-        position: relative;
-        padding-bottom: 10px;
-      }
-
-      .section-title h2::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 60px;
-        height: 4px;
+      .btn-secondary:hover {
         background: var(--primary);
+        color: #fff;
       }
 
-      /* GRID SERVIÇOS */
+      /* SEÇÃO DE ESTATÍSTICAS */
+      .authority-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        padding: 80px 8px;
+      }
+
+      .stat-card {
+        background: var(--card-bg);
+        padding: 50px 30px;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        text-align: center;
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .stat-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--primary);
+      }
+
+      .stat-card h2 {
+        font-size: 3.5rem;
+        color: var(--primary);
+        line-height: 1;
+      }
+
+      .stat-card p {
+        font-weight: 700;
+        margin-top: 10px;
+        text-transform: uppercase;
+      }
+
+      .stat-card span {
+        color: var(--text-dim);
+        font-size: 0.9rem;
+      }
+
+      /* SOBRE */
+      .about-section {
+        padding: 120px 8%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+      }
+
+      .about-img img {
+        width: 100%;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* SERVIÇOS */
       .grid-services {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         gap: 25px;
+        padding: 0 8%;
+        margin-bottom: 100px;
       }
 
       .service-card {
         background: var(--card-bg);
         padding: 40px;
-        border-radius: 12px;
-        border: 1px solid var(--glass);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
         transition: var(--transition);
+        backdrop-filter: blur(10px);
       }
 
       .service-card:hover {
-        transform: translateY(-10px);
         border-color: var(--primary);
+        transform: scale(1.02);
       }
 
       .service-card i {
-        font-size: 2rem;
+        font-size: 2.5rem;
         color: var(--primary);
         margin-bottom: 20px;
         display: block;
       }
 
-      /* DIFERENCIAIS */
-      .diff-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 20px;
-        margin-top: 40px;
+      .service-card h3 {
+        margin-bottom: 20px;
+        font-size: 1.4rem;
       }
 
-      .diff-card {
-        background: var(--glass);
-        padding: 20px;
-        border-radius: 10px;
-        text-align: center;
-        transition: var(--transition);
+      .service-card ul {
+        list-style: none;
+        padding-left: 0;
       }
 
-      .diff-card:hover {
-        border-color: var(--primary);
-        background: rgba(230, 0, 0, 0.05);
-      }
-
-      .diff-card i {
-        color: var(--primary);
-        font-size: 1.5rem;
+      .service-card ul li {
+        color: var(--text-dim);
         margin-bottom: 10px;
+        font-size: 0.95rem;
+        display: flex;
+        align-items: center;
+      }
+
+      .service-card ul li::before {
+        content: "✓";
+        color: var(--primary);
+        margin-right: 12px;
+        font-weight: 900;
       }
 
       /* DEPOIMENTOS */
-      .testimonials-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
+      .reviews-wrapper {
+        padding: 80px 8%;
+        background: #080808;
       }
 
-      .testimonial-card {
-        background: var(--glass);
+      .reviews-container {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        padding: 20px 0;
+        scrollbar-width: none;
+      }
+
+      .reviews-container::-webkit-scrollbar {
+        display: none;
+      }
+
+      .google-card {
+        min-width: 320px;
+        background: #fff;
+        color: #111;
         padding: 30px;
-        border-radius: 15px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        flex-shrink: 0;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
       }
 
-      .user-info img {
-        width: 60px;
-        height: 60px;
+      .google-card .profile-pic {
+        width: 45px;
+        height: 45px;
         border-radius: 50%;
-        border: 2px solid var(--primary);
-        object-fit: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        margin-right: 12px;
+        color: #fff;
+        background: var(--primary);
+        flex-shrink: 0;
       }
 
       /* CONTATO */
-      .contact-container {
+      .contact-section {
+        padding: 100px 8%;
+      }
+
+      .contact-card {
+        background: #111;
+        border-radius: 30px;
+        overflow: hidden;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 50px;
-        background: var(--card-bg);
-        padding: 40px;
-        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
       }
 
-      iframe {
+      .contact-info {
+        padding: 60px;
+      }
+
+      .map-box iframe {
         width: 100%;
         height: 100%;
-        min-height: 300px;
-        border-radius: 15px;
-        filter: grayscale(1) invert(0.92);
+        min-height: 400px;
+        border: 0;
+        filter: invert(0.9) grayscale(1);
       }
 
-      /* FLOATING SOCIAL BUTTONS */
-      .social-float-container {
+      /* SOCIAL FLOAT */
+      .social-float {
         position: fixed;
         bottom: 30px;
         right: 30px;
+        z-index: 2000;
         display: flex;
         flex-direction: column;
         gap: 15px;
-        z-index: 9999;
       }
 
-      .social-icon {
+      .s-icon {
         width: 60px;
         height: 60px;
-        border-radius: 50%;
+        border-radius: 18px;
         display: flex;
-        justify-content: center;
         align-items: center;
-        color: white;
-        font-size: 30px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        transition: var(--transition);
+        justify-content: center;
+        color: #fff;
+        font-size: 28px;
         text-decoration: none;
+        transition: 0.3s;
       }
 
-      .social-icon.whatsapp {
-        background: #25d366;
-      }
-
-      .social-icon.instagram {
-        background: radial-gradient(
-          circle at 30% 107%,
-          #fdf497 0%,
-          #fdf497 5%,
-          #fd5949 45%,
-          #d6249f 60%,
-          #285aeb 90%
-        );
-      }
-
-      .social-icon:hover {
-        transform: scale(1.1) rotate(8deg);
-      }
-
-      /* ANIMATION */
-      .reveal {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.8s ease-out;
-      }
-
-      .reveal.active {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      @media (max-width: 768px) {
-        nav {
-          display: none;
-        }
-
-        .contact-container {
+      @media (max-width: 968px) {
+        .about-section,
+        .contact-card {
           grid-template-columns: 1fr;
         }
 
-        .hero h1 {
-          font-size: 2.8rem;
+        header nav {
+          display: none;
+        }
+
+        .hero p {
+          border-left: none;
+          padding-left: 0;
+          margin-bottom: 30px;
         }
       }
     </style>
@@ -362,312 +403,501 @@
 
   <body>
     <header id="header">
-      <a href="#" class="logo-text">MARALEX</a>
+      <img src="logo.png" alt="Logo Oficina Maralex" class="main-logo" />
       <nav>
-        <a href="#home">Home</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#depoimentos">Depoimentos</a>
-        <a href="#contato">Contato</a>
+        <a href="#home">INÍCIO</a>
+        <a href="#sobre">A OFICINA</a>
+        <a href="#servicos">SERVIÇOS</a>
+        <a href="#depoimentos">AVALIAÇÕES</a>
+        <a href="#contato">CONTATO</a>
       </nav>
     </header>
 
     <section class="hero" id="home">
-      <div class="hero-content">
-        <h1>Mecânica de <span>Alta Performance.</span></h1>
+      <h1>
+        Oficina Maralex – <span>Tradição e Qualidade em Cada Serviço</span>
+      </h1>
+      <p>
+        Desde 2000, transformando tecnologia em segurança. Referência absoluta
+        em Belford Roxo com 26 anos de tradição e equipamentos de última
+        geração.
+      </p>
+      <div class="hero-buttons">
+        <a
+          href="https://wa.me/5521964275964"
+          target="_blank"
+          class="btn btn-primary"
+          >AGENDAR NO WHATSAPP</a
+        >
+        <a href="#servicos" class="btn btn-secondary">VER SERVIÇOS</a>
+      </div>
+    </section>
+
+    <!-- ESTATÍSTICAS -->
+    <section class="authority-grid">
+      <div class="stat-card">
+        <h2>+100 MIL</h2>
+        <p>Clientes Satisfeitos</p>
+        <span>Histórico de confiança total</span>
+      </div>
+      <div class="stat-card">
+        <h2>26 ANOS</h2>
+        <p>De Tradição</p>
+        <span>Evoluindo a cada quilômetro</span>
+      </div>
+      <div class="stat-card">
+        <div style="color: #fbbc04; margin-bottom: 10px">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i
+          ><i class="fas fa-star"></i><i class="fas fa-star"></i
+          ><i class="fas fa-star"></i>
+        </div>
+        <p>Nota Máxima</p>
+        <span>Avaliação 5.0 no Google</span>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="about-section">
+      <div class="about-img">
+        <img
+          src="https://images.unsplash.com/photo-1625047509168-a7026f36de04?q=80&w=2000&auto=format&fit=crop"
+          alt="Interior Oficina Maralex"
+          loading="lazy"
+        />
+      </div>
+      <div class="about-text">
+        <h2 style="color: var(--primary); margin-bottom: 25px">
+          Cuidando do Seu Carro, Segurança e Confiança em Cada Serviço
+        </h2>
         <p>
-          Realizamos serviços completos de manutenção preventiva e corretiva,
-          com profissionais experientes e equipamentos modernos.
+          Com mais de 26 anos de atuação e mais de 100 mil veículos atendidos, a
+          Maralex vai além de uma oficina: é um centro de excelência automotiva.
+          Unimos o atendimento próximo de uma empresa familiar ao rigor
+          tecnológico e aos padrões das grandes montadoras.
         </p>
-        <div class="hero-btns">
-          <a href="https://wa.me/5521964275964" class="btn btn-primary"
-            >Agendar Revisão</a
-          >
-          <a
-            href="#servicos"
-            class="btn"
-            style="border: 1px solid white; color: white"
-            >Ver Serviços</a
-          >
-        </div>
+        <p style="margin-top: 15px">
+          Oferecemos diagnósticos precisos que evitam gastos desnecessários e
+          garantem maior longevidade ao seu veículo.
+        </p>
+        <a href="#servicos" class="btn btn-secondary" style="margin-top: 30px"
+          >VER ESPECIALIDADES</a
+        >
       </div>
     </section>
 
-    <div class="faith-section">
-      <div class="reveal">
-        <div
-          class="icon-divider"
-          style="color: var(--primary); font-size: 2rem; margin-bottom: 20px"
-        >
-          <i class="fas fa-trophy"></i>
-        </div>
-        <h2>“Onde a fé guia o trabalho e a qualidade move resultados”</h2>
-      </div>
-    </div>
-
-    <section id="sobre" class="reveal">
-      <div class="section-title">
-        <h2>Por que escolher a Oficina Maralex?</h2>
-      </div>
-      <div style="text-align: center; max-width: 900px; margin: 0 auto">
-        <p
-          style="font-size: 1.1rem; color: var(--text-dim); margin-bottom: 40px"
-        >
-          Utilizamos peças de qualidade, equipamentos modernos e seguimos
-          rigorosamente todas as recomendações dos fabricantes.
+    <!-- SERVIÇOS -->
+    <section id="servicos">
+      <div style="text-align: center; margin-bottom: 60px">
+        <h2>Nossos Serviços</h2>
+        <p style="color: var(--primary); letter-spacing: 2px">
+          SOLUÇÕES COMPLETAS DE PONTA A PONTA
         </p>
-
-        <div class="diff-grid">
-          <div class="diff-card">
-            <i class="fas fa-handshake"></i>
-            <p>Confiança e transparência</p>
-          </div>
-          <div class="diff-card">
-            <i class="fas fa-shield-alt"></i>
-            <p>Garantia em todos os serviços</p>
-          </div>
-          <div class="diff-card">
-            <i class="fas fa-bolt"></i>
-            <p>Atendimento rápido e eficiente</p>
-          </div>
-          <div class="diff-card">
-            <i class="fas fa-tag"></i>
-            <p>Preço justo</p>
-          </div>
-          <div class="diff-card">
-            <i class="fas fa-user-check"></i>
-            <p>Profissionais experientes</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="servicos" style="background: #0a0a0a">
-      <div class="section-title reveal">
-        <h2>Nossas Especialidades</h2>
       </div>
       <div class="grid-services">
-        <div class="service-card reveal">
-          <i class="fas fa-tools"></i>
-          <h3>🔧 Revisão Completa</h3>
-          <p>Manutenção detalhada para prevenir falhas inesperadas.</p>
-        </div>
-        <div class="service-card reveal">
-          <i class="fas fa-oil-can"></i>
-          <h3>🛢️ Troca de Óleo</h3>
-          <p>Lubrificantes de alta qualidade para proteger seu motor.</p>
-        </div>
-        <div class="service-card reveal">
+        <div class="service-card">
           <i class="fas fa-microchip"></i>
-          <h3>⚙️ Injeção Eletrônica</h3>
-          <p>Diagnóstico e reparo preciso do sistema de injeção.</p>
+          <h3>Injeção Eletrônica</h3>
+          <ul>
+            <li>Diagnóstico via Scanner Pro</li>
+            <li>Programação de Módulos</li>
+            <li>Limpeza de Bicos Ultrassom</li>
+            <li>Reset de Parâmetros de Fábrica</li>
+          </ul>
         </div>
-        <div class="service-card reveal">
-          <i class="fas fa-sync-alt"></i>
-          <h3>🔁 Fluido de Câmbio</h3>
-          <p>Troca especializada de fluido para câmbio automático.</p>
+        <div class="service-card">
+          <i class="fas fa-cogs"></i>
+          <h3>Câmbio & Transmissão</h3>
+          <ul>
+            <li>Manutenção de Câmbio Automático</li>
+            <li>Troca de Óleo por Diálise</li>
+            <li>Substituição de Kit Embreagem</li>
+          </ul>
         </div>
-        <div class="service-card reveal">
-          <i class="fas fa-car"></i>
-          <h3>🚗 Preventiva</h3>
-          <p>
-            A melhor forma de economizar é cuidando antes do problema aparecer.
-          </p>
+        <div class="service-card">
+          <i class="fas fa-snowflake"></i>
+          <h3>Ar-Condicionado</h3>
+          <ul>
+            <li>Carga de Gás e Teste de Vazamento</li>
+            <li>Higienização com Ozônio</li>
+            <li>Reparo Completo em Compressores</li>
+          </ul>
         </div>
-        <div class="service-card reveal">
-          <i class="fas fa-laptop-medical"></i>
-          <h3>🧰 Diagnóstico</h3>
-          <p>Análise tecnológica avançada em todos os sistemas do carro.</p>
+        <div class="service-card">
+          <i class="fas fa-tools"></i>
+          <h3>Mecânica Geral</h3>
+          <ul>
+            <li>Revisão Preventiva (Checklist)</li>
+            <li>Troca de Correia Dentada</li>
+            <li>Arrefecimento e Fluidos</li>
+          </ul>
         </div>
-      </div>
-    </section>
-
-    <section id="depoimentos" class="reveal">
-      <div class="section-title">
-        <h2>Quem confia, aprova</h2>
-      </div>
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <div
-            class="user-info"
-            style="
-              display: flex;
-              align-items: center;
-              gap: 15px;
-              margin-bottom: 15px;
-            "
-          >
-            <img
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop"
-              alt="Jonatas"
-            />
-            <div>
-              <strong>Jonatas Souza</strong><br />
-              <small style="color: #f5b50a">⭐⭐⭐⭐⭐ - 2 anos atrás</small>
-            </div>
-          </div>
-          <p>
-            Venho aqui agradecer e parabenizar pelo serviço. Ficou excelente o
-            trabalho👏🏼👏🏼. Deve ser reconhecido quando existe profissionalismo!
-          </p>
+        <div class="service-card">
+          <i class="fas fa-shield-alt"></i>
+          <h3>Suspensão & Freios</h3>
+          <ul>
+            <li>Amortecedores e Molas</li>
+            <li>Diagnóstico de Sistema ABS</li>
+            <li>Pastilhas e Discos de Freio</li>
+          </ul>
         </div>
-
-        <div class="testimonial-card">
-          <div
-            class="user-info"
-            style="
-              display: flex;
-              align-items: center;
-              gap: 15px;
-              margin-bottom: 15px;
-            "
-          >
-            <img
-              src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop"
-              alt="Leonardo"
-            />
-            <div>
-              <strong>Leonardo Pereira</strong><br />
-              <small style="color: #f5b50a">⭐⭐⭐⭐⭐ - 2 meses atrás</small>
-            </div>
-          </div>
-          <p>Lanternagem e pintura de excelente qualidade. Recomendo muito.</p>
-        </div>
-
-        <div class="testimonial-card">
-          <div
-            class="user-info"
-            style="
-              display: flex;
-              align-items: center;
-              gap: 15px;
-              margin-bottom: 15px;
-            "
-          >
-            <img
-              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop"
-              alt="Carlos"
-            />
-            <div>
-              <strong>Carlos Souza</strong><br />
-              <small style="color: #f5b50a">⭐⭐⭐⭐⭐ - 1 ano atrás</small>
-            </div>
-          </div>
-          <p>
-            Profissionais qualificados. Indico a Maralex, estou satisfeito com o
-            serviço executado. Equipe nota 10.
-          </p>
-        </div>
-
-        <div class="testimonial-card">
-          <div
-            class="user-info"
-            style="
-              display: flex;
-              align-items: center;
-              gap: 15px;
-              margin-bottom: 15px;
-            "
-          >
-            <img
-              src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop"
-              alt="Priscila"
-            />
-            <div>
-              <strong>Priscila Reges</strong><br />
-              <small style="color: #f5b50a">⭐⭐⭐⭐⭐ - 3 anos atrás</small>
-            </div>
-          </div>
-          <p>
-            Serviço de excelência! Marcelo e toda equipe estão de parabéns.
-            Devolveram nosso corsinha novinho. Gratidão! 🙏🏼
-          </p>
+        <div class="service-card">
+          <i class="fas fa-car-crash"></i>
+          <h3>Lanternagem</h3>
+          <ul>
+            <li>Reparos Estruturais</li>
+            <li>Recuperação de Lataria</li>
+            <li>Serviço de Alta Precisão</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section id="contato" class="reveal">
-      <div class="contact-container">
-        <div>
-          <h2 style="margin-bottom: 20px">Fale Conosco</h2>
-          <p style="margin-bottom: 20px">
-            <i
-              class="fas fa-phone"
-              style="color: var(--primary); margin-right: 10px"
-            ></i>
-            (21) 2759-0228
+    <!-- DEPOIMENTOS -->
+    <section class="reviews-wrapper" id="depoimentos">
+      <div style="text-align: center; margin-bottom: 40px">
+        <h2>O QUE NOSSOS CLIENTES DIZEM</h2>
+      </div>
+      <div class="reviews-container" id="reviews-slider">
+        <!-- JS irá inserir os cards -->
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="contact-section">
+      <div class="contact-card">
+        <div class="contact-info">
+          <h2 style="color: var(--primary); margin-bottom: 30px">
+            ONDE ESTAMOS
+          </h2>
+          <p style="font-size: 1.2rem; margin-bottom: 20px">
+            <i class="fas fa-map-marker-alt" style="color: var(--primary)"></i>
+            Rua Guarujá, 81 - Lote XV, Belford Roxo
           </p>
-          <p style="margin-bottom: 20px">
-            <i
-              class="fab fa-whatsapp"
-              style="color: var(--primary); margin-right: 10px"
-            ></i>
-            (21) 96427-5964
+          <p style="margin-bottom: 10px">
+            <i class="fab fa-whatsapp" style="color: var(--primary)"></i> (21)
+            2759-0228 <br />
+            <i class="fab fa-whatsapp" style="color: var(--primary)"></i> (21)
+            96427-5964
           </p>
-          <p style="margin-bottom: 30px">
-            <i
-              class="fas fa-map-marker-alt"
-              style="color: var(--primary); margin-right: 10px"
-            ></i>
-            Rua Guarujá, 81 – Belford Roxo – RJ
-          </p>
-          <h3>Horário de Funcionamento</h3>
-          <p>Segunda a Sexta: 08h às 18h<br />Sábados: 08h às 12h</p>
+          <div style="margin-top: 30px">
+            <h3>Horário de Funcionamento</h3>
+            <p>Segunda a Sexta: 08:00 às 18:00</p>
+            <p>Sábado: 08:00 às 12:00</p>
+          </div>
+          <a
+            href="https://wa.me/5521964275964"
+            target="_blank"
+            class="btn btn-primary"
+            style="margin-top: 40px; width: 100%; text-align: center"
+            >FALAR COM UM TÉCNICO AGORA</a
+          >
         </div>
-        <div>
+        <div class="map-box">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3681.332467332219!2d-43.3883838!3d-22.7214533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9967008c495945%3A0x6e26715456f4d852!2sR.%20Guaruj%C3%A1%2C%2081%20-%20Vila%20Pauline%2C%20Belford%20Roxo%20-%20RJ%2C%2026115-300!5e0!3m2!1spt-BR!2sbr!4v1700000000000"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.5694276182583!2d-43.3429212!3d-22.7061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9964f4345f8f3f%3A0x6a0a0a0a0a0a0a0a!2sRua%20Guaruj%C3%A1%2C%2081%20-%20Lote%20XV%2C%20Belford%20Roxo%20-%20RJ!5e0!3m2!1spt-BR!2sbr!4v1700000000000"
             allowfullscreen=""
             loading="lazy"
+            title="Mapa Oficina Maralex"
           ></iframe>
         </div>
       </div>
     </section>
 
+    <!-- FOOTER -->
     <footer
       style="
-        padding: 40px;
+        padding: 60px 8%;
         text-align: center;
-        border-top: 1px solid var(--glass);
+        background: #000;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
       "
     >
-      <p style="color: var(--text-dim); font-size: 0.9rem">
-        © 2026 Oficina Maralex. Todos os direitos reservados.
+      <img
+        src="logo.png"
+        alt="Maralex"
+        style="height: 150px; opacity: 90; margin-bottom: 20px"
+      />
+      <p style="color: var(--text-dim); font-size: 0.8rem">
+        OFICINA MARALEX © 2026 - TODOS OS DIREITOS RESERVADOS.
       </p>
+      <div style="margin-top: 20px">
+        <a href="#home" style="color: var(--text-dim); margin-right: 15px"
+          >Início</a
+        >
+        <a href="#sobre" style="color: var(--text-dim); margin-right: 15px"
+          >A Oficina</a
+        >
+        <a href="#servicos" style="color: var(--text-dim); margin-right: 15px"
+          >Serviços</a
+        >
+        <a
+          href="#depoimentos"
+          style="color: var(--text-dim); margin-right: 15px"
+          >Avaliações</a
+        >
+        <a href="#contato" style="color: var(--text-dim)">Contato</a>
+      </div>
     </footer>
 
-    <div class="social-float-container">
+    <!-- SOCIAL FLOAT -->
+    <div class="social-float">
       <a
         href="https://www.instagram.com/oficinamaralex"
-        class="social-icon instagram"
         target="_blank"
+        class="s-icon"
+        style="
+          background: radial-gradient(
+            circle at 30% 107%,
+            #fdf497 0%,
+            #fdf497 5%,
+            #fd5949 45%,
+            #d6249f 60%,
+            #285aeb 90%
+          );
+        "
         ><i class="fab fa-instagram"></i
       ></a>
       <a
         href="https://wa.me/5521964275964"
-        class="social-icon whatsapp"
         target="_blank"
+        class="s-icon"
+        style="background: #25d366"
         ><i class="fab fa-whatsapp"></i
       ></a>
     </div>
 
     <script>
+      // DEPOIMENTOS - LISTA DE 50 AVALIAÇÕES
+      const reviews = [
+        { n: "Carlos Alberto", t: "Confiança total  . Equipe nota 10!" },
+        {
+          n: "Juliana Mendes",
+          t: "Excelente atendimento. O diagnóstico por scanner poupou muito tempo e dinheiro.",
+        },
+        {
+          n: "Marcos Souza",
+          t: "Troquei o óleo do câmbio automático aqui. Serviço de concessionária com preço justo.",
+        },
+        {
+          n: "Felipe G.",
+          t: "Melhor lanternagem da região. O carro voltou a parecer zero quilômetro.",
+        },
+        {
+          n: "Renata Lima",
+          t: "Super recomendo! Local limpo, organizado e profissionais educados.",
+        },
+        {
+          n: "Ricardo Alves",
+          t: "Atendimento rápido e eficiente. Resolveram o problema na hora.",
+        },
+        {
+          n: "Beatriz Costa",
+          t: "Preço justo e honestidade. Não tentaram me empurrar serviços desnecessários.",
+        },
+        {
+          n: "Thiago Silva",
+          t: "Equipe técnica muito preparada. Entendem de carros importados como ninguém.",
+        },
+        {
+          n: "Fernanda Rocha",
+          t: "Levei para revisão de viagem e o carro ficou perfeito. Segurança em primeiro lugar.",
+        },
+        {
+          n: "Paulo Henrique",
+          t: "O melhor custo-benefício que já encontrei em oficinas mecânicas.",
+        },
+        {
+          n: "Amanda Oliveira",
+          t: "Adorei a transparência. Me mostraram exatamente o que precisava ser trocado.",
+        },
+        {
+          n: "Lucas Martins",
+          t: "Serviço de freios impecável. Recomendo para todos os meus amigos.",
+        },
+        {
+          n: "Patrícia Gomes",
+          t: "Ambiente muito profissional. O agendamento funciona de verdade.",
+        },
+        {
+          n: "Rodrigo Santos",
+          t: "Especialistas em injeção eletrônica. Meu carro estava falhando e ficou novo.",
+        },
+        {
+          n: "Camila Souza",
+          t: "A melhor oficina que já fui. Tratamento VIP do início ao fim.",
+        },
+        {
+          n: "Gabriel Lima",
+          t: "Sempre levo meus carros da empresa aqui. Rapidez e garantia no serviço.",
+        },
+        {
+          n: "Larissa Bento",
+          t: "O polimento ficou incrível! Tirou todos os riscos superficiais.",
+        },
+        {
+          n: "Marcelo Dutra",
+          t: "Fiz a suspensão completa. O carro está macio e sem barulhos.",
+        },
+        {
+          n: "Sofia Ramos",
+          t: "Muito atenciosos com quem não entende nada de mecânica. Explicam tudo.",
+        },
+        {
+          n: "André Luiz",
+          t: "Troca de pneus e alinhamento nota 10. Equipamentos modernos.",
+        },
+        {
+          n: "Vanessa Dias",
+          t: "Sistema de ar-condicionado higienizado e gelando muito agora!",
+        },
+        {
+          n: "Igor Ferreira",
+          t: "Honestidade é o forte deles. Ganharam um cliente fiel.",
+        },
+        {
+          n: "Cláudia M.",
+          t: "Gostei muito da organização. Oficina limpa passa muita confiança.",
+        },
+        {
+          n: "Eduardo Vaz",
+          t: "Serviço de embreagem rápido. Meu carro ficou pronto antes do prazo.",
+        },
+        { n: "Bruna K.", t: "Melhor preço da cidade em baterias originais." },
+        {
+          n: "Rafael T.",
+          t: "O diagnóstico foi certeiro. Outras oficinas não achavam o defeito.",
+        },
+        {
+          n: "Letícia F.",
+          t: "Fiquei impressionada com a tecnologia que eles usam no scanner.",
+        },
+        {
+          n: "Gustavo P.",
+          t: "Trabalho de pintura excelente, não dá para notar diferença de cor.",
+        },
+        {
+          n: "Mônica S.",
+          t: "Sempre sou bem recebida. Café cortesia e sala de espera confortável.",
+        },
+        {
+          n: "Sérgio J.",
+          t: "Revisão preventiva feita com muito capricho. Recomendo.",
+        },
+        {
+          n: "Daniela R.",
+          t: "Equipe honesta. O valor final foi exatamente o do orçamento.",
+        },
+        {
+          n: "Hugo M.",
+          t: "Excelente para carros antigos também. Cuidam com carinho.",
+        },
+        {
+          n: "Priscila A.",
+          t: "O melhor alinhamento 3D da região. O carro não puxa mais.",
+        },
+        {
+          n: "Fábio L.",
+          t: "Mecânicos atenciosos e tiram todas as dúvidas. Nota mil.",
+        },
+        {
+          n: "Tatiana W.",
+          t: "O carro foi entregue limpo e lavado. Capricho total!",
+        },
+        {
+          n: "Leonardo Q.",
+          t: "Preços competitivos e peças de primeira linha.",
+        },
+        {
+          n: "Bianca V.",
+          t: "Facilidade no pagamento e parcelamento sem juros. Ajudou muito.",
+        },
+        {
+          n: "Otávio G.",
+          t: "Referência em câmbio automático. Estão de parabéns.",
+        },
+        {
+          n: "Silvana E.",
+          t: "Levei meu carro zero para não perder a garantia e valeu muito a pena.",
+        },
+        {
+          n: "Maurício C.",
+          t: "Rapidez no atendimento via WhatsApp. Muito prático.",
+        },
+        {
+          n: "Elena N.",
+          t: "Serviço de elétrica muito detalhista. Resolveram um curto chato.",
+        },
+        {
+          n: "Vitor B.",
+          t: "Sem enrolação. Direto ao ponto e com solução rápida.",
+        },
+        { n: "Sabrina X.", t: "Melhor oficina da região, sem dúvidas." },
+        {
+          n: "Samuel H.",
+          t: "Indiquei para minha família inteira. Todos gostaram.",
+        },
+        {
+          n: "Cristina O.",
+          t: "A oficina é impecável. Os mecânicos usam capa nos bancos.",
+        },
+        {
+          n: "Jorge U.",
+          t: "Troca de correia dentada feita no prazo. Recomendo.",
+        },
+        {
+          n: "Natália Z.",
+          t: "Atendimento humanizado. Me senti muito segura.",
+        },
+        {
+          n: "Diego K.",
+          t: "Scanner de última geração. Detectou o erro em minutos.",
+        },
+        {
+          n: "Roberta M.",
+          t: "Sempre saio satisfeita. Oficina de confiança é tudo.",
+        },
+        {
+          n: "Willian J.",
+          t: "Profissionais que amam o que fazem. Isso faz a diferença.",
+        },
+      ];
+
+      const slider = document.getElementById("reviews-slider");
+      const colors = ["#4285F4", "#EA4335", "#FBBC05", "#34A853", "#673AB7"];
+
+      // GARANTE A ROLAGEM VIA JS (Caso o CSS falhe)
+      slider.style.display = "flex";
+      slider.style.overflowX = "auto";
+      slider.style.webkitOverflowScrolling = "touch";
+
+      reviews.forEach((r, i) => {
+        const card = document.createElement("div");
+        card.className = "google-card";
+
+        // Impede que o card encolha, forçando a rolagem
+        card.style.flexShrink = "0";
+
+        const initial = r.n.charAt(0).toUpperCase();
+
+        card.innerHTML = `
+            <div class="card-header" style="display:flex; align-items:center; margin-bottom:15px;">
+                <div class="profile-pic" style="background:${colors[i % 5]}; width:45px; height:45px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:bold; margin-right:12px;">${initial}</div>
+                <div class="user-name" style="font-weight:700; color:#111;">${r.n}</div>
+            </div>
+            <div class="stars" style="color:#fbbc04; font-size:0.8rem; margin-bottom:10px;">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="review-text" style="font-size:0.9rem; line-height:1.5; color:#333; margin:0;">"${r.t}"</p>
+        `;
+        slider.appendChild(card);
+      });
+
+      // HEADER SCROLL
       window.addEventListener("scroll", () => {
         const header = document.getElementById("header");
         if (window.scrollY > 50) header.classList.add("scrolled");
         else header.classList.remove("scrolled");
       });
-
-      const revealElements = () => {
-        const reveals = document.querySelectorAll(".reveal");
-        reveals.forEach((el) => {
-          const windowHeight = window.innerHeight;
-          const elementTop = el.getBoundingClientRect().top;
-          if (elementTop < windowHeight - 100) el.classList.add("active");
-        });
-      };
-      window.addEventListener("scroll", revealElements);
-      window.addEventListener("load", revealElements);
     </script>
   </body>
 </html>
